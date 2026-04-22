@@ -117,12 +117,12 @@
     --antracite: #2B2B2B;
     --oro: #C9A96E;
     --champagne: #E8DFC8;
-    --grigio-caldo: #9A8F7E;
+    --grigio-caldo: #A29085;
     --navy-dark: #1A2A4A;
     --navy-mid: #2E6DA4;
     --bg: #2B2B2B;
     --text-primary: #E8DFC8;
-    --text-secondary: #9A8F7E;
+    --text-secondary: #A29085;
     --accent: #C9A96E;
   }
 
@@ -156,6 +156,7 @@
   }
   .nav-logo img {
     height: 36px;
+    width: auto;
     opacity: 0.95;
   }
   .nav-links {
@@ -525,7 +526,7 @@
   }
   .servizio-desc {
     font-size: 13px;
-    color: rgba(154,143,126,0.8);
+    color: #B0A898;
     line-height: 1.8;
     font-weight: 300;
   }
@@ -690,11 +691,11 @@
     justify-content: space-between;
     border-top: 1px solid rgba(201,169,110,0.1);
   }
-  .footer-logo img { height: 28px; opacity: 0.7; }
+  .footer-logo img { height: 28px; width: auto; opacity: 0.7; }
   .footer-copy {
     font-size: 10px;
     letter-spacing: 2px;
-    color: rgba(154,143,126,0.5);
+    color: rgba(154,143,126,0.9);
     text-transform: uppercase;
   }
   .footer-links {
@@ -705,7 +706,7 @@
   .footer-links a {
     font-size: 10px;
     letter-spacing: 2px;
-    color: rgba(154,143,126,0.5);
+    color: rgba(154,143,126,0.9);
     text-decoration: none;
     text-transform: uppercase;
     transition: color 0.3s;
@@ -964,7 +965,7 @@
 <!-- NAV -->
 <nav id="main-nav" class="scrolled">
   <div class="nav-logo">
-    <img src="liberty-house-logo.webp" alt="Liberty House Hospitality – case vacanze a Messina">
+    <img src="liberty-house-logo.webp" alt="Liberty House Hospitality – case vacanze a Messina" width="207" height="36">
   </div>
   <ul class="nav-links">
     <li><a href="#intro" data-i18n="nav.struttura">La struttura</a></li>
@@ -1212,8 +1213,8 @@
         </div>
       </div>
       <div class="form-group">
-        <label data-i18n="form.ospiti.label">Ospiti</label>
-        <select>
+        <label for="ospiti" data-i18n="form.ospiti.label">Ospiti</label>
+        <select id="ospiti">
           <option value="" selected="selected" data-i18n="form.ospiti.opt0">Seleziona</option>
           <option data-i18n="form.ospiti.opt1">1 ospite</option>
           <option data-i18n="form.ospiti.opt2">2 ospiti</option>
@@ -1236,7 +1237,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="footer-logo">
-    <img src="liberty-house-logo.webp" alt="Liberty House Hospitality">
+    <img src="liberty-house-logo.webp" alt="Liberty House Hospitality" width="161" height="28">
   </div>
   <span class="footer-copy">© 2026 Liberty House Hospitality</span>
   <ul class="footer-links">
