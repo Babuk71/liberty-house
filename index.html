@@ -1190,26 +1190,26 @@
     <form class="reveal visible" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
-          <label data-i18n="form.nome.label">Nome</label>
-          <input type="text" data-i18n-placeholder="form.nome.ph" placeholder="Il tuo nome">
+          <label for="nome" data-i18n="form.nome.label">Nome</label>
+          <input type="text" id="nome" data-i18n-placeholder="form.nome.ph" placeholder="Il tuo nome">
         </div>
         <div class="form-group">
-          <label data-i18n="form.cognome.label">Cognome</label>
-          <input type="text" data-i18n-placeholder="form.cognome.ph" placeholder="Il tuo cognome">
+          <label for="cognome" data-i18n="form.cognome.label">Cognome</label>
+          <input type="text" id="cognome" data-i18n-placeholder="form.cognome.ph" placeholder="Il tuo cognome">
         </div>
       </div>
       <div class="form-group">
-        <label data-i18n="form.email.label">Email</label>
-        <input type="email" data-i18n-placeholder="form.email.ph" placeholder="email@esempio.it">
+        <label for="email" data-i18n="form.email.label">Email</label>
+        <input type="email" id="email" data-i18n-placeholder="form.email.ph" placeholder="email@esempio.it">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label data-i18n="form.arrivo.label">Arrivo</label>
-          <input type="date">
+          <label for="arrivo" data-i18n="form.arrivo.label">Arrivo</label>
+          <input type="date" id="arrivo">
         </div>
         <div class="form-group">
-          <label data-i18n="form.partenza.label">Partenza</label>
-          <input type="date">
+          <label for="partenza" data-i18n="form.partenza.label">Partenza</label>
+          <input type="date" id="partenza">
         </div>
       </div>
       <div class="form-group">
@@ -1223,8 +1223,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label data-i18n="form.msg.label">Messaggio</label>
-        <textarea data-i18n-placeholder="form.msg.ph" placeholder="Raccontaci le vostre esigenze o richieste speciali…"></textarea>
+        <label for="messaggio" data-i18n="form.msg.label">Messaggio</label>
+        <textarea id="messaggio" data-i18n-placeholder="form.msg.ph" placeholder="Raccontaci le vostre esigenze o richieste speciali…"></textarea>
       </div>
       <button type="submit" class="form-submit" data-i18n="form.submit">Invia richiesta</button>
       <div id="form-success" style="display:none; font-size:12px; letter-spacing:2px; color:var(--oro); text-transform:uppercase; margin-top:8px;" data-i18n="form.success">
