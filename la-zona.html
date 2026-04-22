@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Zona – Cosa vedere e fare a Messina | Liberty House Hospitality</title>
+
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon_32x32.png">
+<link rel="apple-touch-icon" href="liberty_house_favicon_192.webp">
+<meta name="theme-color" content="#2B2B2B">
+
+<meta name="description" content="Cosa vedere e fare a Messina in vacanza: lo Stretto, le spiagge di Mortelle e Acqualadroni, Taormina, l'Etna, il traghetto per la Calabria. Liberty House si trova a 50 metri dal mare in Contrada Fortino.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://babuk71.github.io/liberty-house/la-zona.html">
+
+<meta name="geo.region" content="IT-ME">
+<meta name="geo.placename" content="Messina, Sicilia">
+<meta name="geo.position" content="38.243;15.562">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="La Zona – Cosa vedere e fare a Messina | Liberty House Hospitality">
+<meta property="og:description" content="Spiagge, escursioni, gastronomia e come arrivare. Tutto quello che c'è intorno alle nostre case vacanze sul mare a Messina.">
+<meta property="og:url" content="https://babuk71.github.io/liberty-house/la-zona.html">
+<meta property="og:image" content="https://babuk71.github.io/liberty-house/liberty-house-logo-oro.webp">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Liberty House Hospitality">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Messina e lo Stretto",
+  "description": "Messina si affaccia sullo Stretto che separa la Sicilia dalla Calabria. A pochi minuti dalle case vacanze Liberty House: spiagge, Taormina, Etna e il traghetto per il continente.",
+  "url": "https://babuk71.github.io/liberty-house/la-zona.html",
+  "touristType": ["Famiglia", "Coppia", "Natura", "Cultura"],
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 38.243,
+    "longitude": 15.562
+  },
+  "includesAttraction": [
+    { "@type": "TouristAttraction", "name": "Stretto di Messina" },
+    { "@type": "TouristAttraction", "name": "Taormina" },
+    { "@type": "TouristAttraction", "name": "Etna" },
+    { "@type": "TouristAttraction", "name": "Spiagge di Mortelle" },
+    { "@type": "TouristAttraction", "name": "Reggio Calabria" }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --antracite: #2B2B2B;
+    --oro: #C9A96E;
+    --champagne: #E8DFC8;
+    --grigio-caldo: #A29085;
+    --navy-dark: #1A2A4A;
+    --navy-mid: #2E6DA4;
+    --bg: #2B2B2B;
+    --text-primary: #E8DFC8;
+    --text-secondary: #A29085;
+    --accent: #C9A96E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: Georgia, 'Times New Roman', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 24px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(27,27,27,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+  .nav-logo img { height: 36px; width: auto; opacity: 0.95; }
+  .nav-links { display: flex; gap: 40px; list-style: none; }
+  .nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: Georgia, serif;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--oro); }
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--oro);
+    color: var(--oro);
+    padding: 10px 28px;
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 300;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--oro); color: var(--antracite); }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block; width: 24px; height: 1px;
+    background: var(--oro); transition: all 0.3s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+  /* MOBILE NAV */
+  .nav-mobile {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(27,27,27,0.98);
+    z-index: 98;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 44px;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    color: var(--text-secondary); text-decoration: none;
+    font-size: 13px; letter-spacing: 5px;
+    text-transform: uppercase; font-family: Georgia, serif;
+    font-weight: 300; transition: color 0.3s;
+  }
+  .nav-mobile a:hover { color: var(--oro); }
+  .nav-mobile .nav-cta-mobile {
+    border: 1px solid var(--oro); color: var(--oro) !important;
+    padding: 14px 48px; margin-top: 8px;
+  }
+
+  /* PAGE HERO */
+  .page-hero {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    padding-left: 60px;
+    padding-right: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(201,169,110,0.1);
+  }
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--oro);
+    font-weight: 300;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .section-label::before {
+    content: '';
+    width: 40px; height: 1px;
+    background: var(--oro); flex-shrink: 0;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--champagne);
+    letter-spacing: 6px;
+    line-height: 1.25;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+  .page-hero-lead {
+    font-size: 17px;
+    line-height: 2;
+    color: var(--text-secondary);
+    font-weight: 300;
+    max-width: 780px;
+    letter-spacing: 0.3px;
+  }
+
+  /* SEZIONI */
+  .zona-section {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 60px;
+    border-bottom: 1px solid rgba(201,169,110,0.08);
+  }
+  .zona-section:last-of-type { border-bottom: none; }
+
+  .zona-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+    margin-top: 48px;
+  }
+  .zona-grid.reverse { direction: rtl; }
+  .zona-grid.reverse > * { direction: ltr; }
+
+  h2 {
+    font-size: clamp(22px, 2.5vw, 36px);
+    font-weight: 300;
+    color: var(--champagne);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .zona-text p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 0.3px;
+  }
+  .zona-text p + p { margin-top: 16px; }
+
+  .distanza-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 24px;
+    padding: 10px 20px;
+    border: 1px solid rgba(201,169,110,0.25);
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--oro);
+  }
+
+  /* MAPPA PLACEHOLDER */
+  .img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--navy-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .img-placeholder::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 20px,
+      rgba(201,169,110,0.03) 20px, rgba(201,169,110,0.03) 21px
+    );
+  }
+  .img-placeholder span {
+    font-size: 10px; letter-spacing: 3px;
+    color: var(--grigio-caldo); text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+  .img-gold-frame {
+    position: absolute;
+    top: -12px; right: -12px;
+    width: 100%; height: 100%;
+    border: 1px solid rgba(201,169,110,0.2);
+    pointer-events: none;
+  }
+
+  /* ATTRAZIONI GRID */
+  .attrazioni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(201,169,110,0.1);
+    margin-top: 48px;
+  }
+  .attrazione-item {
+    background: var(--antracite);
+    padding: 40px 32px;
+    border-top: 2px solid transparent;
+    transition: border-color 0.3s;
+  }
+  .attrazione-item:hover { border-top-color: var(--oro); }
+  .attrazione-distanza {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--oro);
+    margin-bottom: 12px; font-weight: 300;
+  }
+  .attrazione-nome {
+    font-size: 14px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--champagne);
+    font-weight: 300; margin-bottom: 12px;
+  }
+  .attrazione-desc {
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.8; font-weight: 300;
+  }
+
+  /* COME ARRIVARE */
+  .arrivo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(201,169,110,0.1);
+    margin-top: 48px;
+  }
+  .arrivo-item {
+    background: var(--navy-dark);
+    padding: 40px 28px;
+  }
+  .arrivo-icon {
+    width: 36px; height: 36px;
+    border: 1px solid rgba(201,169,110,0.4);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+  }
+  .arrivo-icon svg { width: 18px; height: 18px; stroke: var(--oro); fill: none; stroke-width: 1.2; }
+  .arrivo-mezzo {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--champagne);
+    font-weight: 300; margin-bottom: 12px;
+  }
+  .arrivo-desc {
+    font-size: 13px; color: var(--text-secondary);
+    line-height: 1.8; font-weight: 300;
+  }
+
+  /* CTA FINALE */
+  .zona-cta {
+    background: #242424;
+    padding: 80px 60px;
+    text-align: center;
+  }
+  .zona-cta h2 { margin-bottom: 20px; }
+  .zona-cta p {
+    font-size: 15px; color: var(--text-secondary);
+    line-height: 2; font-weight: 300; margin-bottom: 40px;
+  }
+  .cta-btn {
+    display: inline-block;
+    border: 1px solid var(--oro);
+    color: var(--oro);
+    padding: 16px 56px;
+    font-family: Georgia, serif;
+    font-size: 11px; letter-spacing: 4px;
+    text-transform: uppercase; text-decoration: none;
+    transition: all 0.3s; font-weight: 300;
+  }
+  .cta-btn:hover { background: var(--oro); color: var(--antracite); }
+
+  /* FOOTER */
+  footer {
+    background: #1e1e1e;
+    padding: 48px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(201,169,110,0.1);
+  }
+  .footer-logo img { height: 28px; width: auto; opacity: 0.7; }
+  .footer-copy {
+    font-size: 10px; letter-spacing: 2px;
+    color: rgba(154,143,126,0.9); text-transform: uppercase;
+  }
+  .footer-links { display: flex; gap: 32px; list-style: none; }
+  .footer-links a {
+    font-size: 10px; letter-spacing: 2px;
+    color: rgba(154,143,126,0.9); text-decoration: none;
+    text-transform: uppercase; transition: color 0.3s;
+  }
+  .footer-links a:hover { color: var(--oro); }
+
+  /* ANIMATIONS */
+  .reveal {
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links, .nav-cta { display: none; }
+    .nav-hamburger { display: flex; }
+
+    .page-hero { padding: 120px 24px 60px; }
+    .zona-section { padding: 60px 24px; }
+    .zona-grid { grid-template-columns: 1fr; gap: 40px; }
+    .zona-grid.reverse { direction: ltr; }
+    .attrazioni-grid { grid-template-columns: 1fr; }
+    .arrivo-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .zona-cta { padding: 60px 24px; }
+    footer {
+      flex-direction: column; align-items: center;
+      gap: 24px; text-align: center; padding: 40px 24px;
+    }
+    .footer-links { gap: 20px; }
+    h1 { letter-spacing: 3px; }
+    h2 { letter-spacing: 2px; }
+  }
+  @media (max-width: 480px) {
+    .arrivo-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <a href="index.html">
+      <img src="liberty-house-logo.webp" alt="Liberty House Hospitality" width="207" height="36">
+    </a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html#intro">Le case</a></li>
+    <li><a href="index.html#spazi">Gli spazi</a></li>
+    <li><a href="index.html#servizi">Servizi</a></li>
+    <li><a href="la-zona.html" class="active">La zona</a></li>
+  </ul>
+  <a href="index.html#contatti" class="nav-cta">Prenota</a>
+  <button class="nav-hamburger" id="nav-hamburger" aria-label="Apri menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="nav-mobile">
+  <a href="index.html#intro" onclick="closeMobileNav()">Le case</a>
+  <a href="index.html#spazi" onclick="closeMobileNav()">Gli spazi</a>
+  <a href="index.html#servizi" onclick="closeMobileNav()">Servizi</a>
+  <a href="la-zona.html" onclick="closeMobileNav()">La zona</a>
+  <a href="index.html#contatti" class="nav-cta-mobile" onclick="closeMobileNav()">Prenota</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero reveal">
+  <div class="section-label">La zona</div>
+  <h1>Messina e lo<br>Stretto di Sicilia</h1>
+  <p class="page-hero-lead">Liberty House si trova a Contrada Fortino, a 50 metri dal mare e a pochi chilometri dal centro di Messina. Intorno: le spiagge più belle del litorale nord, Taormina, l'Etna e il traghetto per la Calabria. Una posizione che vale da sola il viaggio.</p>
+</div>
+
+<!-- LO STRETTO -->
+<section class="zona-section reveal">
+  <div class="section-label">Il mare sotto casa</div>
+  <div class="zona-grid">
+    <div class="zona-text">
+      <h2>Lo Stretto<br>di Messina</h2>
+      <p>Lo Stretto di Messina è uno dei tratti di mare più suggestivi del Mediterraneo: appena tre chilometri d'acqua separano la Sicilia dalla Calabria, e lo sguardo abbraccia entrambe le sponde. Da Casa Montante e Casa Scendente la vista è diretta, senza filtri — il mare è a cinquanta metri e le correnti che danno il nome alle nostre case scorrono visibili sotto i terrazzini.</p>
+      <p>Pescatori, velisti, traghetti e navi da crociera animano lo Stretto a ogni ora del giorno. La sera, le luci di Reggio Calabria si specchiano nell'acqua. È uno spettacolo che non stanca mai.</p>
+      <span class="distanza-badge">50 metri dalla porta di casa</span>
+    </div>
+    <div style="position:relative;">
+      <div class="img-placeholder">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(201,169,110,0.25)" stroke-width="1"><path d="M3 12h18M3 6c3 3 6 3 9 0s6-3 9 0M3 18c3-3 6-3 9 0s6 3 9 0"></path></svg>
+        <span>Vista sullo Stretto</span>
+      </div>
+      <div class="img-gold-frame"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPIAGGE -->
+<section class="zona-section reveal" style="background:rgba(26,42,74,0.15);">
+  <div class="section-label">Il litorale</div>
+  <h2>Le spiagge<br>di Messina</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Il litorale nord di Messina è una successione di spiagge libere e attrezzate, raggiungibili in pochi minuti di auto o bicicletta. Acque limpide, fondali bassi e sabbia mista a ghiaia — l'ideale per le famiglie.</p>
+
+  <div class="attrazioni-grid" style="margin-top:48px;">
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">50 metri</div>
+      <div class="attrazione-nome">Litorale di Contrada Fortino</div>
+      <div class="attrazione-desc">Il mare sotto casa. La spiaggia antistante le case è raggiungibile a piedi in meno di un minuto. Spiaggia libera, acque tranquille, panorama sullo Stretto.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">8 km — 12 min</div>
+      <div class="attrazione-nome">Spiagge di Mortelle</div>
+      <div class="attrazione-desc">La località balneare più frequentata del messinese. Stabilimenti attrezzati, spiagge libere, bar e ristoranti sul mare. Acque cristalline protette dall'insenatura naturale.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">5 km — 8 min</div>
+      <div class="attrazione-nome">Acqualadroni</div>
+      <div class="attrazione-desc">Piccolo borgo di pescatori con spiaggia frequentata dai messinesi. Atmosfera autentica, pochi turisti, ottimo per chi cerca il mare senza folla.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ESCURSIONI -->
+<section class="zona-section reveal">
+  <div class="section-label">Nei dintorni</div>
+  <h2>Escursioni<br>imperdibili</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Da Messina si raggiungono alcune delle mete più iconiche della Sicilia e del Sud Italia. Un'ottima base per esplorare senza rinunciare al mare.</p>
+
+  <div class="attrazioni-grid">
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">45 min in auto</div>
+      <div class="attrazione-nome">Taormina</div>
+      <div class="attrazione-desc">Il Teatro Antico con la vista sull'Etna e sul mare Ionio, il centro storico medievale, la spiaggia di Isola Bella. Una delle mete più fotografate di tutta la Sicilia.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">1h 15min in auto</div>
+      <div class="attrazione-nome">Etna</div>
+      <div class="attrazione-desc">Il vulcano attivo più alto d'Europa. Si può salire fino a 2.900 metri con la funivia, percorrere i sentieri lavici o visitare i borghi etnei come Zafferana e Nicolosi.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">20 min in traghetto</div>
+      <div class="attrazione-nome">Reggio Calabria</div>
+      <div class="attrazione-desc">Dall'altro lato dello Stretto: il Museo Nazionale della Magna Grecia con i Bronzi di Riace, il lungomare Falcomatà, la vista panoramica sull'Etna dalla sponda calabrese.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">20 min in auto</div>
+      <div class="attrazione-nome">Messina — Centro storico</div>
+      <div class="attrazione-desc">Il Duomo normanno con il campanile e l'orologio astronomico più grande del mondo, la Fontana di Orione, il Museo Regionale con le opere di Caravaggio e Antonello da Messina.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">1h 30min in auto</div>
+      <div class="attrazione-nome">Cefalù</div>
+      <div class="attrazione-desc">La cattedrale normanna, il centro medievale e una delle spiagge più belle della Sicilia. Perfetta per una giornata fuori porta verso la Sicilia occidentale.</div>
+    </div>
+    <div class="attrazione-item">
+      <div class="attrazione-distanza">2h in traghetto</div>
+      <div class="attrazione-nome">Isole Eolie</div>
+      <div class="attrazione-desc">Stromboli, Vulcano, Lipari, Salina — l'arcipelago vulcanico patrimonio UNESCO. I traghetti partono dal porto di Milazzo, a 40 minuti di auto da Contrada Fortino.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GASTRONOMIA -->
+<section class="zona-section reveal" style="background:rgba(26,42,74,0.15);">
+  <div class="section-label">A tavola</div>
+  <div class="zona-grid">
+    <div style="position:relative;">
+      <div class="img-placeholder" style="background:#162038;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(46,109,164,0.4)" stroke-width="1"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+        <span>Sapori dello Stretto</span>
+      </div>
+      <div class="img-gold-frame"></div>
+    </div>
+    <div class="zona-text">
+      <h2>I sapori<br>dello Stretto</h2>
+      <p>La cucina messinese ruota intorno al pesce spada, pescato nello Stretto con tecniche antiche e servito in mille modi: alla ghiotta, in agrodolce, come condimento della pasta. Il mercato del pesce di Messina è tra i più ricchi della Sicilia.</p>
+      <p>Non mancano i classici siciliani: la granita con brioche al mattino, gli arancini, la pasta alla Norma. E a pochi minuti dalle case, i ristoranti sul lungomare di Contrada Fortino servono pesce freschissimo con vista diretta sullo Stretto.</p>
+      <span class="distanza-badge">Ristoranti a 5 minuti a piedi</span>
+    </div>
+  </div>
+</section>
+
+<!-- COME ARRIVARE -->
+<section class="zona-section reveal">
+  <div class="section-label">Come arrivare</div>
+  <h2>Raggiungere<br>Contrada Fortino</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Le case si trovano lungo Via Consolare Pompea, 1200 — la strada statale che percorre il litorale nord di Messina. Facilmente raggiungibili da ogni direzione, con posto auto privato incluso.</p>
+
+  <div class="arrivo-grid">
+    <div class="arrivo-item">
+      <div class="arrivo-icon">
+        <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+      </div>
+      <div class="arrivo-mezzo">In auto</div>
+      <div class="arrivo-desc">Autostrada A18 (Catania–Messina) o A20 (Palermo–Messina), uscita Messina Nord. Da lì, Via Consolare Pompea in direzione nord per circa 8 km. Posto auto privato nel complesso Le Verande.</div>
+    </div>
+    <div class="arrivo-item">
+      <div class="arrivo-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+      </div>
+      <div class="arrivo-mezzo">In treno</div>
+      <div class="arrivo-desc">Stazione Centrale di Messina, con collegamento diretto da Catania (1h 20min), Palermo (3h) e il continente via traghetto ferroviario. Dal centro, taxi o autobus ATM linea 79 fino a Contrada Fortino.</div>
+    </div>
+    <div class="arrivo-item">
+      <div class="arrivo-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
+      </div>
+      <div class="arrivo-mezzo">In aereo</div>
+      <div class="arrivo-desc">Aeroporto di Catania–Fontanarossa (1h 15min in auto) o Aeroporto di Reggio Calabria (20 min in traghetto + auto). Catania è collegata con tutti i principali aeroporti italiani ed europei.</div>
+    </div>
+    <div class="arrivo-item">
+      <div class="arrivo-icon">
+        <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6c3 3 6 3 9 0s6-3 9 0M3 18c3-3 6-3 9 0s6 3 9 0"></path></svg>
+      </div>
+      <div class="arrivo-mezzo">In traghetto</div>
+      <div class="arrivo-desc">Dal porto di Villa San Giovanni (Calabria) partono traghetti ogni 20 minuti per Messina, tutto il giorno. La traversata dura circa 25 minuti. Ideale per chi arriva dal Sud Italia in auto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="zona-cta reveal">
+  <div class="section-label" style="justify-content:center;">Prenota il tuo soggiorno</div>
+  <h2>Tutto questo,<br>a 50 metri dal mare</h2>
+  <p>Casa Montante e Casa Scendente sono disponibili per soggiorni di almeno tre notti.<br>Contattaci per verificare la disponibilità e ricevere un preventivo.</p>
+  <a href="index.html#contatti" class="cta-btn">Verifica disponibilità</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="liberty-house-logo.webp" alt="Liberty House Hospitality" width="161" height="28">
+  </div>
+  <span class="footer-copy">© 2026 Liberty House Hospitality</span>
+  <ul class="footer-links">
+    <li><a href="#">Privacy</a></li>
+    <li><a href="#">Cookie</a></li>
+    <li><a href="#">Instagram</a></li>
+  </ul>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('nav-hamburger');
+  const mobileNav = document.getElementById('nav-mobile');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileNav.classList.toggle('open');
+    document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  });
+  function closeMobileNav() {
+    hamburger.classList.remove('open');
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
