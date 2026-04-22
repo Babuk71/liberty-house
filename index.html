@@ -1177,7 +1177,7 @@
         </div>
         <div class="contatti-row">
           <span class="contatti-label" data-i18n="contatti.email.label">Email</span>
-          <span class="contatti-value">turric1@doworks.eu</span>
+          <span class="contatti-value"><a id="email-link" href="#" class="inline-cta" style="font-size:14px; letter-spacing:1px;"></a></span>
         </div>
         <div class="contatti-row">
           <span class="contatti-label" data-i18n="contatti.tel.label">Telefono</span>
@@ -1449,6 +1449,15 @@
     mobileNav.classList.remove('open');
     document.body.style.overflow = '';
   }
+
+  // Email offuscata
+  (function() {
+    const u = 'turric1', d = 'doworks', t = 'eu';
+    const el = document.getElementById('email-link');
+    const addr = u + '@' + d + '.' + t;
+    el.textContent = addr;
+    el.href = 'mailto:' + addr;
+  })();
 
   // Smooth scroll hero
   document.querySelector('.hero-scroll').addEventListener('click', () => {
