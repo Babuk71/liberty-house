@@ -99,6 +99,31 @@
     transition: color 0.3s;
   }
   .nav-links a:hover, .nav-links a.active { color: var(--oro); }
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: Georgia, serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+    font-weight: 300;
+  }
+  .lang-btn.active, .lang-btn:hover { color: var(--oro); }
+  .lang-sep { color: rgba(154,143,126,0.3); font-size: 10px; }
   .nav-cta {
     background: transparent;
     border: 1px solid var(--oro);
@@ -156,6 +181,26 @@
     border: 1px solid var(--oro); color: var(--oro) !important;
     padding: 14px 48px; margin-top: 8px;
   }
+  .nav-mobile .lang-switcher-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+  .nav-mobile .lang-btn-mobile {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-family: Georgia, serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s;
+  }
+  .nav-mobile .lang-btn-mobile.active,
+  .nav-mobile .lang-btn-mobile:hover { color: var(--oro); }
 
   /* PAGE HERO */
   .page-hero {
@@ -311,7 +356,7 @@
   }
   .attrazione-desc {
     font-size: 13px; color: var(--text-secondary);
-    line-height: 1.8; font-weight: 300;
+    line-height: 1.8; font-weight: 300; text-align: justify;
   }
 
   /* COME ARRIVARE */
@@ -340,7 +385,7 @@
   }
   .arrivo-desc {
     font-size: 13px; color: var(--text-secondary);
-    line-height: 1.8; font-weight: 300;
+    line-height: 1.8; font-weight: 300; text-align: justify;
   }
 
   /* CTA FINALE */
@@ -398,7 +443,7 @@
   /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
-    .nav-links, .nav-cta { display: none; }
+    .nav-links, .nav-right { display: none; }
     .nav-hamburger { display: flex; }
 
     .page-hero { padding: 120px 24px 60px; }
@@ -432,46 +477,58 @@
     </a>
   </div>
   <ul class="nav-links">
-    <li><a href="index.html#intro">Le case</a></li>
-    <li><a href="index.html#spazi">Gli spazi</a></li>
-    <li><a href="index.html#servizi">Servizi</a></li>
-    <li><a href="la-zona.html" class="active">La zona</a></li>
+    <li><a href="index.html#intro" data-i18n="nav.case">Le case</a></li>
+    <li><a href="index.html#spazi" data-i18n="nav.spazi">Gli spazi</a></li>
+    <li><a href="index.html#servizi" data-i18n="nav.servizi">Servizi</a></li>
+    <li><a href="la-zona.html" class="active" data-i18n="nav.zona">La zona</a></li>
   </ul>
-  <a href="index.html#contatti" class="nav-cta">Prenota</a>
+  <div class="nav-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-it" onclick="setLang('it')">IT</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="index.html#contatti" class="nav-cta" data-i18n="nav.prenota">Prenota</a>
+  </div>
   <button class="nav-hamburger" id="nav-hamburger" aria-label="Apri menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="nav-mobile" id="nav-mobile">
-  <a href="index.html#intro" onclick="closeMobileNav()">Le case</a>
-  <a href="index.html#spazi" onclick="closeMobileNav()">Gli spazi</a>
-  <a href="index.html#servizi" onclick="closeMobileNav()">Servizi</a>
-  <a href="la-zona.html" onclick="closeMobileNav()">La zona</a>
-  <a href="index.html#contatti" class="nav-cta-mobile" onclick="closeMobileNav()">Prenota</a>
+  <a href="index.html#intro" onclick="closeMobileNav()" data-i18n="nav.case">Le case</a>
+  <a href="index.html#spazi" onclick="closeMobileNav()" data-i18n="nav.spazi">Gli spazi</a>
+  <a href="index.html#servizi" onclick="closeMobileNav()" data-i18n="nav.servizi">Servizi</a>
+  <a href="la-zona.html" onclick="closeMobileNav()" data-i18n="nav.zona">La zona</a>
+  <a href="index.html#contatti" class="nav-cta-mobile" onclick="closeMobileNav()" data-i18n="nav.prenota">Prenota</a>
+  <div class="lang-switcher-mobile">
+    <button class="lang-btn-mobile active" id="btn-it-m" onclick="setLang('it')">IT</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn-mobile" id="btn-en-m" onclick="setLang('en')">EN</button>
+  </div>
 </div>
 
 <!-- PAGE HERO -->
 <div class="page-hero reveal">
-  <div class="section-label">La zona</div>
-  <h1>Messina e lo<br>Stretto di Sicilia</h1>
-  <p class="page-hero-lead">Liberty House si trova a Contrada Fortino, a 50 metri dal mare e a pochi chilometri dal centro di Messina. Intorno: le spiagge più belle del litorale nord, Taormina, l'Etna e il traghetto per la Calabria. Una posizione che vale da sola il viaggio.</p>
+  <div class="section-label" data-i18n="zona.hero.label">La zona</div>
+  <h1 data-i18n="zona.hero.h1">Messina ed il suo Stretto</h1>
+  <p class="page-hero-lead" data-i18n="zona.hero.lead">Liberty House si trova a Contrada Fortino, a 50 metri dal mare e a pochi chilometri dal centro di Messina. Intorno: le spiagge più belle del litorale nord, Taormina, l'Etna e il traghetto per la Calabria. Una posizione che vale da sola il viaggio.</p>
 </div>
 
 <!-- LO STRETTO -->
 <section class="zona-section reveal">
-  <div class="section-label">Il mare sotto casa</div>
+  <div class="section-label" data-i18n="zona.stretto.label">Il mare sotto casa</div>
   <div class="zona-grid">
     <div class="zona-text">
-      <h2>Lo Stretto<br>di Messina</h2>
-      <p>Lo Stretto di Messina è uno dei tratti di mare più suggestivi del Mediterraneo: appena tre chilometri d'acqua separano la Sicilia dalla Calabria, e lo sguardo abbraccia entrambe le sponde. Da Casa Montante e Casa Scendente la vista è diretta, senza filtri — il mare è a cinquanta metri e le correnti che danno il nome alle nostre case scorrono visibili sotto i terrazzini.</p>
-      <p>Pescatori, velisti, traghetti e navi da crociera animano lo Stretto a ogni ora del giorno. La sera, le luci di Reggio Calabria si specchiano nell'acqua. È uno spettacolo che non stanca mai.</p>
-      <span class="distanza-badge">50 metri dalla porta di casa</span>
+      <h2 data-i18n-html="zona.stretto.h2">Lo Stretto<br>di Messina</h2>
+      <p data-i18n="zona.stretto.p1">Lo Stretto di Messina è uno dei tratti di mare più suggestivi del Mediterraneo: appena tre chilometri d'acqua separano la Sicilia dalla Calabria, e lo sguardo abbraccia entrambe le sponde. Da Casa Montante e Casa Scendente la vista è diretta, senza filtri — il mare è a cinquanta metri e le correnti che danno il nome alle nostre case scorrono visibili sotto i terrazzini.</p>
+      <p data-i18n="zona.stretto.p2">Pescatori, velisti, traghetti e navi da crociera animano lo Stretto a ogni ora del giorno. La sera, le luci di Reggio Calabria si specchiano nell'acqua. È uno spettacolo che non stanca mai.</p>
+      <span class="distanza-badge" data-i18n="zona.stretto.badge">50 metri dalla porta di casa</span>
     </div>
     <div style="position:relative;">
       <div class="img-placeholder">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="rgba(201,169,110,0.25)" stroke-width="1"><path d="M3 12h18M3 6c3 3 6 3 9 0s6-3 9 0M3 18c3-3 6-3 9 0s6 3 9 0"></path></svg>
-        <span>Vista sullo Stretto</span>
+        <span data-i18n="zona.stretto.img">Vista sullo Stretto</span>
       </div>
       <div class="img-gold-frame"></div>
     </div>
@@ -480,133 +537,133 @@
 
 <!-- SPIAGGE -->
 <section class="zona-section reveal" style="background:rgba(26,42,74,0.15);">
-  <div class="section-label">Il litorale</div>
-  <h2>Le spiagge<br>di Messina</h2>
-  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Il litorale nord di Messina è una successione di spiagge libere e attrezzate, raggiungibili in pochi minuti di auto o bicicletta. Acque limpide, fondali bassi e sabbia mista a ghiaia — l'ideale per le famiglie.</p>
+  <div class="section-label" data-i18n="zona.spiagge.label">Il litorale</div>
+  <h2 data-i18n-html="zona.spiagge.h2">Le spiagge<br>di Messina</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;" data-i18n="zona.spiagge.lead">Il litorale nord di Messina è una successione di spiagge libere e attrezzate, raggiungibili in pochi minuti di auto o bicicletta. Acque limpide, fondali bassi e sabbia mista a ghiaia — l'ideale per le famiglie.</p>
 
   <div class="attrazioni-grid" style="margin-top:48px;">
     <div class="attrazione-item">
-      <div class="attrazione-distanza">50 metri</div>
-      <div class="attrazione-nome">Litorale di Contrada Fortino</div>
-      <div class="attrazione-desc">Il mare sotto casa. La spiaggia antistante le case è raggiungibile a piedi in meno di un minuto. Spiaggia libera, acque tranquille, panorama sullo Stretto.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.fortino.dist">50 metri</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.fortino.nome">Litorale di Contrada Fortino</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.fortino.desc">Il mare sotto casa. La spiaggia antistante le case è raggiungibile a piedi in meno di un minuto. Spiaggia libera, acque tranquille, panorama sullo Stretto.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">8 km — 12 min</div>
-      <div class="attrazione-nome">Spiagge di Mortelle</div>
-      <div class="attrazione-desc">La località balneare più frequentata del messinese. Stabilimenti attrezzati, spiagge libere, bar e ristoranti sul mare. Acque cristalline protette dall'insenatura naturale.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.mortelle.dist">8 km — 12 min</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.mortelle.nome">Spiagge di Mortelle</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.mortelle.desc">La località balneare più frequentata del messinese. Stabilimenti attrezzati, spiagge libere, bar e ristoranti sul mare. Acque cristalline protette dall'insenatura naturale.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">5 km — 8 min</div>
-      <div class="attrazione-nome">Acqualadroni</div>
-      <div class="attrazione-desc">Piccolo borgo di pescatori con spiaggia frequentata dai messinesi. Atmosfera autentica, pochi turisti, ottimo per chi cerca il mare senza folla.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.acqualadroni.dist">12 km — 15 min</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.acqualadroni.nome">Capo Faro</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.acqualadroni.desc">Antico borgo di pescatori, oggi spiaggia molto affollata e frequentata, posta sulla punta più estrema. Il punto della Sicilia più vicino al Continente.</div>
     </div>
   </div>
 </section>
 
 <!-- ESCURSIONI -->
 <section class="zona-section reveal">
-  <div class="section-label">Nei dintorni</div>
-  <h2>Escursioni<br>imperdibili</h2>
-  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Da Messina si raggiungono alcune delle mete più iconiche della Sicilia e del Sud Italia. Un'ottima base per esplorare senza rinunciare al mare.</p>
+  <div class="section-label" data-i18n="zona.escursioni.label">Nei dintorni</div>
+  <h2 data-i18n-html="zona.escursioni.h2">Escursioni<br>imperdibili</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;" data-i18n="zona.escursioni.lead">Da Messina si raggiungono alcune delle mete più iconiche della Sicilia e del Sud Italia. Un'ottima base per esplorare senza rinunciare al mare.</p>
 
   <div class="attrazioni-grid">
     <div class="attrazione-item">
-      <div class="attrazione-distanza">45 min in auto</div>
-      <div class="attrazione-nome">Taormina</div>
-      <div class="attrazione-desc">Il Teatro Antico con la vista sull'Etna e sul mare Ionio, il centro storico medievale, la spiaggia di Isola Bella. Una delle mete più fotografate di tutta la Sicilia.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.taormina.dist">45 min in auto</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.taormina.nome">Taormina</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.taormina.desc">Il Teatro Antico con la vista sull'Etna e sul mare Ionio, il centro storico medievale, la spiaggia di Isola Bella. Una delle mete più fotografate di tutta la Sicilia.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">Nello Stretto</div>
-      <div class="attrazione-nome">Scilla e Cariddi</div>
-      <div class="attrazione-desc">I due mostri dell'Odissea di Omero sono lo Stretto stesso: Scilla la roccia calabrese, Cariddi il vortice siciliano. Odisseo lo attraversò dubitando di farcela. Tremila anni dopo, lo stesso specchio d'acqua si vede dai terrazzini di casa.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.scilla.dist">Nello Stretto</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.scilla.nome">Scilla e Cariddi</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.scilla.desc">I due mostri dell'Odissea di Omero sono lo Stretto stesso: Scilla la roccia calabrese, Cariddi il vortice siciliano. Odisseo lo attraversò dubitando di farcela. Tremila anni dopo, lo stesso specchio d'acqua si vede dai terrazzini di casa.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">20 min in traghetto</div>
-      <div class="attrazione-nome">Reggio Calabria</div>
-      <div class="attrazione-desc">Dall'altro lato dello Stretto: il Museo Nazionale della Magna Grecia con i Bronzi di Riace, il lungomare Falcomatà, la vista panoramica sull'Etna dalla sponda calabrese.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.reggio.dist">Nello Stretto</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.reggio.nome">Scuba Diving</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.reggio.desc">Immersioni mozzafiato nel blu delle correnti dello Stretto.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">20 min in auto</div>
-      <div class="attrazione-nome">L'Orologio Astronomico del Duomo</div>
-      <div class="attrazione-desc">Il campanile del Duomo di Messina ospita l'orologio astronomico più grande d'Europa. Ogni giorno a mezzogiorno mette in moto un sistema di figure dorate e carillon che racconta la storia della città. Uno spettacolo unico al mondo.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.orologio.dist">20 min in auto</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.orologio.nome">L'Orologio Astronomico del Duomo</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.orologio.desc">Il campanile del Duomo di Messina ospita l'orologio astronomico più grande d'Europa. Ogni giorno a mezzogiorno mette in moto un sistema di figure dorate e carillon che racconta la storia della città. Uno spettacolo unico al mondo.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">Estate — in città</div>
-      <div class="attrazione-nome">Concerti ed eventi a Messina</div>
-      <div class="attrazione-desc">D'estate Messina ospita concerti e festival che richiamano decine di migliaia di spettatori. Le settimane degli eventi sono tra le più richieste dell'anno per gli affitti: prenotare con anticipo è fondamentale.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.concerti.dist">Estate — in città</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.concerti.nome">Concerti ed eventi a Messina</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.concerti.desc">D'estate Messina ospita concerti e festival che richiamano decine di migliaia di spettatori. Le settimane degli eventi sono tra le più richieste dell'anno per gli affitti: prenotare con anticipo è fondamentale.</div>
     </div>
     <div class="attrazione-item">
-      <div class="attrazione-distanza">40 min + traghetto</div>
-      <div class="attrazione-nome">Milazzo e le Isole Eolie</div>
-      <div class="attrazione-desc">Milazzo è un piccolo centro sul mare con un castello medievale, un lungomare ricco di ristoranti e uno dei capo più belli della Sicilia. Vale una visita di per sé — e dal suo porto partono traghetti e aliscafi per tutte e sette le isole dell'arcipelago vulcanico patrimonio UNESCO: Lipari, Vulcano, Stromboli, Salina, Panarea, Filicudi e Alicudi.</div>
+      <div class="attrazione-distanza" data-i18n="zona.attr.eolie.dist">40 min + traghetto</div>
+      <div class="attrazione-nome" data-i18n="zona.attr.eolie.nome">Milazzo e le Isole Eolie</div>
+      <div class="attrazione-desc" data-i18n="zona.attr.eolie.desc">Milazzo è un piccolo centro sul mare con un castello medievale, un lungomare ricco di ristoranti e uno dei capo più belli della Sicilia. Vale una visita di per sé — e dal suo porto partono traghetti e aliscafi per tutte e sette le isole dell'arcipelago vulcanico patrimonio UNESCO: Lipari, Vulcano, Stromboli, Salina, Panarea, Filicudi e Alicudi.</div>
     </div>
   </div>
 </section>
 
 <!-- GASTRONOMIA -->
 <section class="zona-section reveal" style="background:rgba(26,42,74,0.15);">
-  <div class="section-label">A tavola</div>
+  <div class="section-label" data-i18n="zona.gastro.label">A tavola</div>
   <div class="zona-grid">
     <div style="position:relative;">
       <div class="img-placeholder" style="background:#162038;">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(46,109,164,0.4)" stroke-width="1"><path d="M18 8h1a4 4 0 010 8h-1M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
-        <span>Sapori dello Stretto</span>
+        <span data-i18n="zona.gastro.img">Sapori dello Stretto</span>
       </div>
       <div class="img-gold-frame"></div>
     </div>
     <div class="zona-text">
-      <h2>I sapori<br>dello Stretto</h2>
-      <p>La tradizione enogastronomica messinese trova il suo Re nel pesce spada, pescato nello Stretto con tecniche antiche e servito in mille modi: alla ghiotta, in agrodolce, come condimento della pasta. Il mercato del pesce di Messina è tra i più ricchi della Sicilia.</p>
-      <p>Non mancano i classici siciliani: la granita con brioche al mattino, gli arancini, la pasta alla Norma. E a pochi minuti dalle case, i ristoranti sul lungomare di Contrada Fortino servono pesce freschissimo con vista diretta sullo Stretto.</p>
-      <span class="distanza-badge">Ristoranti a 5 minuti a piedi</span>
+      <h2 data-i18n-html="zona.gastro.h2">I sapori<br>dello Stretto</h2>
+      <p data-i18n="zona.gastro.p1">La tradizione enogastronomica messinese trova il suo Re nel pesce spada, pescato nello Stretto con tecniche antiche e servito in mille modi: alla ghiotta, in agrodolce, come condimento della pasta. Il mercato del pesce di Messina è tra i più ricchi della Sicilia.</p>
+      <p data-i18n="zona.gastro.p2">Non mancano i classici siciliani: la granita con brioche al mattino, gli arancini, la pasta alla Norma. E a pochi minuti dalle case, i ristoranti sul lungomare di Contrada Fortino servono pesce freschissimo con vista diretta sullo Stretto.</p>
+      <span class="distanza-badge" data-i18n="zona.gastro.badge">Ristoranti a 5 minuti a piedi</span>
     </div>
   </div>
 </section>
 
 <!-- COME ARRIVARE -->
 <section class="zona-section reveal">
-  <div class="section-label">Come arrivare</div>
-  <h2>Raggiungere<br>Contrada Fortino</h2>
-  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;">Le case si trovano lungo Via Consolare Pompea, 1200 — la strada statale che percorre il litorale nord di Messina. Facilmente raggiungibili da ogni direzione, con posto auto privato incluso.</p>
+  <div class="section-label" data-i18n="zona.arrivo.label">Come arrivare</div>
+  <h2 data-i18n-html="zona.arrivo.h2">Raggiungere<br>Contrada Fortino</h2>
+  <p style="font-size:15px; line-height:2; color:var(--text-secondary); font-weight:300; max-width:700px; margin-top:16px;" data-i18n="zona.arrivo.lead">Le case si trovano lungo Via Consolare Pompea, 1200 — la strada statale che percorre il litorale nord di Messina. Facilmente raggiungibili da ogni direzione, con posto auto privato incluso.</p>
 
   <div class="arrivo-grid">
     <div class="arrivo-item">
       <div class="arrivo-icon">
         <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"></rect><path d="M16 8h4l3 3v5h-7V8z"></path><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
       </div>
-      <div class="arrivo-mezzo">In auto</div>
-      <div class="arrivo-desc">Autostrada A18 (Catania–Messina) o A20 (Palermo–Messina), uscita Messina Nord. Da lì, Via Consolare Pompea in direzione nord per circa 8 km. Posto auto privato nel complesso Le Verande.</div>
+      <div class="arrivo-mezzo" data-i18n="zona.arrivo.auto.mezzo">In auto</div>
+      <div class="arrivo-desc" data-i18n="zona.arrivo.auto.desc">Autostrada A18 (Catania–Messina) o A20 (Palermo–Messina), uscita Messina Nord. Da lì, Via Consolare Pompea in direzione nord per circa 8 km. Posto auto privato nel complesso Le Verande.</div>
     </div>
     <div class="arrivo-item">
       <div class="arrivo-icon">
         <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
       </div>
-      <div class="arrivo-mezzo">In treno</div>
-      <div class="arrivo-desc">Stazione Centrale di Messina, con collegamento diretto da Catania (1h 20min), Palermo (3h) e il continente via traghetto ferroviario. Dal centro, taxi o autobus ATM linea 79 fino a Contrada Fortino.</div>
+      <div class="arrivo-mezzo" data-i18n="zona.arrivo.treno.mezzo">In treno</div>
+      <div class="arrivo-desc" data-i18n="zona.arrivo.treno.desc">Stazione Centrale di Messina, con collegamento diretto da Catania (1h 20min), Palermo (3h) e il continente via traghetto ferroviario. Dal centro, taxi o autobus ATM linea 79 fino a Contrada Fortino.</div>
     </div>
     <div class="arrivo-item">
       <div class="arrivo-icon">
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path></svg>
       </div>
-      <div class="arrivo-mezzo">In aereo</div>
-      <div class="arrivo-desc">Aeroporto di Catania–Fontanarossa (1h 15min in auto) o Aeroporto di Reggio Calabria (20 min in traghetto + auto). Catania è collegata con tutti i principali aeroporti italiani ed europei.</div>
+      <div class="arrivo-mezzo" data-i18n="zona.arrivo.aereo.mezzo">In aereo</div>
+      <div class="arrivo-desc" data-i18n="zona.arrivo.aereo.desc">Aeroporto di Catania–Fontanarossa (1h 15min in auto) o Aeroporto di Reggio Calabria (20 min in traghetto + auto). Catania è collegata con tutti i principali aeroporti italiani ed europei.</div>
     </div>
     <div class="arrivo-item">
       <div class="arrivo-icon">
         <svg viewBox="0 0 24 24"><path d="M3 12h18M3 6c3 3 6 3 9 0s6-3 9 0M3 18c3-3 6-3 9 0s6 3 9 0"></path></svg>
       </div>
-      <div class="arrivo-mezzo">In traghetto</div>
-      <div class="arrivo-desc">Dal porto di Villa San Giovanni (Calabria) partono traghetti ogni 20 minuti per Messina, tutto il giorno. La traversata dura circa 25 minuti. Ideale per chi arriva dal Sud Italia in auto.</div>
+      <div class="arrivo-mezzo" data-i18n="zona.arrivo.traghetto.mezzo">In traghetto</div>
+      <div class="arrivo-desc" data-i18n="zona.arrivo.traghetto.desc">Dal porto di Villa San Giovanni (Calabria) partono traghetti ogni 20 minuti per Messina, tutto il giorno. La traversata dura circa 25 minuti. Ideale per chi arriva dal Sud Italia in auto.</div>
     </div>
   </div>
 </section>
 
 <!-- CTA -->
 <div class="zona-cta reveal">
-  <div class="section-label" style="justify-content:center;">Prenota il tuo soggiorno</div>
-  <h2>Tutto questo,<br>a 50 metri dal mare</h2>
-  <p>Casa Montante e Casa Scendente sono disponibili per affitti settimanali.<br>Contattaci per verificare la disponibilità e ricevere un preventivo.</p>
-  <a href="index.html#contatti" class="cta-btn">Verifica disponibilità</a>
+  <div class="section-label" style="justify-content:center;" data-i18n="zona.cta.label">Prenota il tuo soggiorno</div>
+  <h2 data-i18n-html="zona.cta.h2">Tutto questo,<br>a 50 metri dal mare</h2>
+  <p data-i18n-html="zona.cta.p">Casa Montante e Casa Scendente sono disponibili per affitti settimanali.<br>Contattaci per verificare la disponibilità e ricevere un preventivo.</p>
+  <a href="index.html#contatti" class="cta-btn" data-i18n="zona.cta.btn">Verifica disponibilità</a>
 </div>
 
 <!-- FOOTER -->
@@ -623,6 +680,174 @@
 </footer>
 
 <script>
+  const T = {
+    it: {
+      'page.title': 'La Zona – Cosa vedere e fare a Messina | Liberty House Hospitality',
+      'page.desc': 'Cosa vedere e fare a Messina in vacanza: lo Stretto, le spiagge di Mortelle e Acqualadroni, Taormina, l\'Etna, il traghetto per la Calabria. Liberty House si trova a 50 metri dal mare in Contrada Fortino.',
+      'nav.case': 'Le case', 'nav.spazi': 'Gli spazi',
+      'nav.servizi': 'Servizi', 'nav.zona': 'La zona', 'nav.prenota': 'Prenota',
+      'zona.hero.label': 'La zona',
+      'zona.hero.h1': 'Messina ed il suo Stretto',
+      'zona.hero.lead': 'Liberty House si trova a Contrada Fortino, a 50 metri dal mare e a pochi chilometri dal centro di Messina. Intorno: le spiagge più belle del litorale nord, Taormina, l\'Etna e il traghetto per la Calabria. Una posizione che vale da sola il viaggio.',
+      'zona.stretto.label': 'Il mare sotto casa',
+      'zona.stretto.h2': 'Lo Stretto<br>di Messina',
+      'zona.stretto.p1': 'Lo Stretto di Messina è uno dei tratti di mare più suggestivi del Mediterraneo: appena tre chilometri d\'acqua separano la Sicilia dalla Calabria, e lo sguardo abbraccia entrambe le sponde. Da Casa Montante e Casa Scendente la vista è diretta, senza filtri — il mare è a cinquanta metri e le correnti che danno il nome alle nostre case scorrono visibili sotto i terrazzini.',
+      'zona.stretto.p2': 'Pescatori, velisti, traghetti e navi da crociera animano lo Stretto a ogni ora del giorno. La sera, le luci di Reggio Calabria si specchiano nell\'acqua. È uno spettacolo che non stanca mai.',
+      'zona.stretto.badge': '50 metri dalla porta di casa',
+      'zona.stretto.img': 'Vista sullo Stretto',
+      'zona.spiagge.label': 'Il litorale',
+      'zona.spiagge.h2': 'Le spiagge<br>di Messina',
+      'zona.spiagge.lead': 'Il litorale nord di Messina è una successione di spiagge libere e attrezzate, raggiungibili in pochi minuti di auto o bicicletta. Acque limpide, fondali bassi e sabbia mista a ghiaia — l\'ideale per le famiglie.',
+      'zona.attr.fortino.dist': '50 metri',
+      'zona.attr.fortino.nome': 'Litorale di Contrada Fortino',
+      'zona.attr.fortino.desc': 'Il mare sotto casa. La spiaggia antistante le case è raggiungibile a piedi in meno di un minuto. Spiaggia libera, acque tranquille, panorama sullo Stretto.',
+      'zona.attr.mortelle.dist': '8 km — 12 min',
+      'zona.attr.mortelle.nome': 'Spiagge di Mortelle',
+      'zona.attr.mortelle.desc': 'La località balneare più frequentata del messinese. Stabilimenti attrezzati, spiagge libere, bar e ristoranti sul mare. Acque cristalline protette dall\'insenatura naturale.',
+      'zona.attr.acqualadroni.dist': '12 km — 15 min',
+      'zona.attr.acqualadroni.nome': 'Capo Faro',
+      'zona.attr.acqualadroni.desc': 'Antico borgo di pescatori, oggi spiaggia molto affollata e frequentata, posta sulla punta più estrema. Il punto della Sicilia più vicino al Continente.',
+      'zona.escursioni.label': 'Nei dintorni',
+      'zona.escursioni.h2': 'Escursioni<br>imperdibili',
+      'zona.escursioni.lead': 'Da Messina si raggiungono alcune delle mete più iconiche della Sicilia e del Sud Italia. Un\'ottima base per esplorare senza rinunciare al mare.',
+      'zona.attr.taormina.dist': '45 min in auto',
+      'zona.attr.taormina.nome': 'Taormina',
+      'zona.attr.taormina.desc': 'Il Teatro Antico con la vista sull\'Etna e sul mare Ionio, il centro storico medievale, la spiaggia di Isola Bella. Una delle mete più fotografate di tutta la Sicilia.',
+      'zona.attr.scilla.dist': 'Nello Stretto',
+      'zona.attr.scilla.nome': 'Scilla e Cariddi',
+      'zona.attr.scilla.desc': 'I due mostri dell\'Odissea di Omero sono lo Stretto stesso: Scilla la roccia calabrese, Cariddi il vortice siciliano. Odisseo lo attraversò dubitando di farcela. Tremila anni dopo, lo stesso specchio d\'acqua si vede dai terrazzini di casa.',
+      'zona.attr.reggio.dist': 'Nello Stretto',
+      'zona.attr.reggio.nome': 'Scuba Diving',
+      'zona.attr.reggio.desc': 'Immersioni mozzafiato nel blu delle correnti dello Stretto.',
+      'zona.attr.orologio.dist': '20 min in auto',
+      'zona.attr.orologio.nome': 'L\'Orologio Astronomico del Duomo',
+      'zona.attr.orologio.desc': 'Il campanile del Duomo di Messina ospita l\'orologio astronomico più grande d\'Europa. Ogni giorno a mezzogiorno mette in moto un sistema di figure dorate e carillon che racconta la storia della città. Uno spettacolo unico al mondo.',
+      'zona.attr.concerti.dist': 'Estate — in città',
+      'zona.attr.concerti.nome': 'Concerti ed eventi a Messina',
+      'zona.attr.concerti.desc': 'D\'estate Messina ospita concerti e festival che richiamano decine di migliaia di spettatori. Le settimane degli eventi sono tra le più richieste dell\'anno per gli affitti: prenotare con anticipo è fondamentale.',
+      'zona.attr.eolie.dist': '40 min + traghetto',
+      'zona.attr.eolie.nome': 'Milazzo e le Isole Eolie',
+      'zona.attr.eolie.desc': 'Milazzo è un piccolo centro sul mare con un castello medievale, un lungomare ricco di ristoranti e uno dei capo più belli della Sicilia. Vale una visita di per sé — e dal suo porto partono traghetti e aliscafi per tutte e sette le isole dell\'arcipelago vulcanico patrimonio UNESCO: Lipari, Vulcano, Stromboli, Salina, Panarea, Filicudi e Alicudi.',
+      'zona.gastro.label': 'A tavola',
+      'zona.gastro.h2': 'I sapori<br>dello Stretto',
+      'zona.gastro.p1': 'La tradizione enogastronomica messinese trova il suo Re nel pesce spada, pescato nello Stretto con tecniche antiche e servito in mille modi: alla ghiotta, in agrodolce, come condimento della pasta. Il mercato del pesce di Messina è tra i più ricchi della Sicilia.',
+      'zona.gastro.p2': 'Non mancano i classici siciliani: la granita con brioche al mattino, gli arancini, la pasta alla Norma. E a pochi minuti dalle case, i ristoranti sul lungomare di Contrada Fortino servono pesce freschissimo con vista diretta sullo Stretto.',
+      'zona.gastro.badge': 'Ristoranti a 5 minuti a piedi',
+      'zona.gastro.img': 'Sapori dello Stretto',
+      'zona.arrivo.label': 'Come arrivare',
+      'zona.arrivo.h2': 'Raggiungere<br>Contrada Fortino',
+      'zona.arrivo.lead': 'Le case si trovano lungo Via Consolare Pompea, 1200 — la strada statale che percorre il litorale nord di Messina. Facilmente raggiungibili da ogni direzione, con posto auto privato incluso.',
+      'zona.arrivo.auto.mezzo': 'In auto',
+      'zona.arrivo.auto.desc': 'Autostrada A18 (Catania–Messina) o A20 (Palermo–Messina), uscita Messina Nord. Da lì, Via Consolare Pompea in direzione nord per circa 8 km. Posto auto privato nel complesso Le Verande.',
+      'zona.arrivo.treno.mezzo': 'In treno',
+      'zona.arrivo.treno.desc': 'Stazione Centrale di Messina, con collegamento diretto da Catania (1h 20min), Palermo (3h) e il continente via traghetto ferroviario. Dal centro, taxi o autobus ATM linea 79 fino a Contrada Fortino.',
+      'zona.arrivo.aereo.mezzo': 'In aereo',
+      'zona.arrivo.aereo.desc': 'Aeroporto di Catania–Fontanarossa (1h 15min in auto) o Aeroporto di Reggio Calabria (20 min in traghetto + auto). Catania è collegata con tutti i principali aeroporti italiani ed europei.',
+      'zona.arrivo.traghetto.mezzo': 'In traghetto',
+      'zona.arrivo.traghetto.desc': 'Dal porto di Villa San Giovanni (Calabria) partono traghetti ogni 20 minuti per Messina, tutto il giorno. La traversata dura circa 25 minuti. Ideale per chi arriva dal Sud Italia in auto.',
+      'zona.cta.label': 'Prenota il tuo soggiorno',
+      'zona.cta.h2': 'Tutto questo,<br>a 50 metri dal mare',
+      'zona.cta.p': 'Casa Montante e Casa Scendente sono disponibili per affitti settimanali.<br>Contattaci per verificare la disponibilità e ricevere un preventivo.',
+      'zona.cta.btn': 'Verifica disponibilità'
+    },
+    en: {
+      'page.title': 'The Area – What to see and do in Messina | Liberty House Hospitality',
+      'page.desc': 'What to see and do in Messina on holiday: the Strait, the beaches of Mortelle and Acqualadroni, Taormina, Etna, the ferry to Calabria. Liberty House is 50 metres from the sea in Contrada Fortino.',
+      'nav.case': 'The Houses', 'nav.spazi': 'The Spaces',
+      'nav.servizi': 'Services', 'nav.zona': 'The Area', 'nav.prenota': 'Book Now',
+      'zona.hero.label': 'The Area',
+      'zona.hero.h1': 'Messina and its Strait',
+      'zona.hero.lead': 'Liberty House is in Contrada Fortino, 50 metres from the sea and a short drive from Messina city centre. Within reach: the finest beaches of the north coast, Taormina, Etna and the ferry to Calabria. A location worth the journey on its own.',
+      'zona.stretto.label': 'The sea at your doorstep',
+      'zona.stretto.h2': 'The Strait<br>of Messina',
+      'zona.stretto.p1': 'The Strait of Messina is one of the most evocative stretches of sea in the Mediterranean: barely three kilometres of water separate Sicily from Calabria, and the eye takes in both shores at once. From Casa Montante and Casa Scendente the view is direct, unfiltered — the sea is fifty metres away and the currents that gave our houses their names flow visibly beneath the terraces.',
+      'zona.stretto.p2': 'Fishing boats, sailing yachts, ferries and cruise ships animate the Strait at every hour of the day. At night, the lights of Reggio Calabria mirror themselves in the water. It is a spectacle that never grows old.',
+      'zona.stretto.badge': '50 metres from your front door',
+      'zona.stretto.img': 'View of the Strait',
+      'zona.spiagge.label': 'The coastline',
+      'zona.spiagge.h2': 'The beaches<br>of Messina',
+      'zona.spiagge.lead': 'The northern coastline of Messina is a succession of free and managed beaches, reachable in a few minutes by car or bicycle. Clear waters, shallow seabed and sand mixed with pebbles — ideal for families.',
+      'zona.attr.fortino.dist': '50 metres',
+      'zona.attr.fortino.nome': 'Contrada Fortino shoreline',
+      'zona.attr.fortino.desc': 'The sea right at your door. The beach in front of the houses is reachable on foot in under a minute. Free beach, calm waters, panoramic view of the Strait.',
+      'zona.attr.mortelle.dist': '8 km — 12 min',
+      'zona.attr.mortelle.nome': 'Mortelle beaches',
+      'zona.attr.mortelle.desc': 'The most popular seaside resort in the Messina area. Equipped lidos, free beaches, seafront bars and restaurants. Crystal waters sheltered by a natural inlet.',
+      'zona.attr.acqualadroni.dist': '12 km — 15 min',
+      'zona.attr.acqualadroni.nome': 'Capo Faro',
+      'zona.attr.acqualadroni.desc': 'An ancient fishing village, today a popular and crowded beach at the northernmost tip of Sicily. The closest point of the island to the Italian mainland.',
+      'zona.escursioni.label': 'Nearby',
+      'zona.escursioni.h2': 'Essential<br>day trips',
+      'zona.escursioni.lead': 'From Messina, some of the most iconic destinations in Sicily and southern Italy are within easy reach. An excellent base for exploring without giving up the sea.',
+      'zona.attr.taormina.dist': '45 min by car',
+      'zona.attr.taormina.nome': 'Taormina',
+      'zona.attr.taormina.desc': 'The Ancient Theatre with its view over Etna and the Ionian Sea, the medieval old town, the beach at Isola Bella. One of the most photographed destinations in all of Sicily.',
+      'zona.attr.scilla.dist': 'In the Strait',
+      'zona.attr.scilla.nome': 'Scylla and Charybdis',
+      'zona.attr.scilla.desc': 'The two monsters of Homer\'s Odyssey are the Strait itself: Scylla the Calabrian rock, Charybdis the Sicilian whirlpool. Odysseus crossed it doubting he would make it. Three thousand years later, the same stretch of water is visible from the terraces of the house.',
+      'zona.attr.reggio.dist': 'In the Strait',
+      'zona.attr.reggio.nome': 'Scuba Diving',
+      'zona.attr.reggio.desc': 'Breathtaking dives in the blue of the Strait\'s currents.',
+      'zona.attr.orologio.dist': '20 min by car',
+      'zona.attr.orologio.nome': 'The Cathedral Astronomical Clock',
+      'zona.attr.orologio.desc': 'The bell tower of Messina Cathedral houses the largest astronomical clock in Europe. Every day at noon it sets in motion a system of gilded figures and a carillon that tells the story of the city. A spectacle found nowhere else on earth.',
+      'zona.attr.concerti.dist': 'Summer — in the city',
+      'zona.attr.concerti.nome': 'Concerts and events in Messina',
+      'zona.attr.concerti.desc': 'In summer Messina hosts concerts and festivals that draw tens of thousands of visitors. Event weeks are among the most in-demand of the year: booking well in advance is essential.',
+      'zona.attr.eolie.dist': '40 min + ferry',
+      'zona.attr.eolie.nome': 'Milazzo and the Aeolian Islands',
+      'zona.attr.eolie.desc': 'Milazzo is a small seaside town with a medieval castle, a waterfront lined with restaurants and one of the finest capes in Sicily. Worth a visit in its own right — and from its port ferries and hydrofoils depart for all seven islands of the UNESCO-listed volcanic archipelago: Lipari, Vulcano, Stromboli, Salina, Panarea, Filicudi and Alicudi.',
+      'zona.gastro.label': 'At table',
+      'zona.gastro.h2': 'The flavours<br>of the Strait',
+      'zona.gastro.p1': 'The culinary tradition of Messina crowns the swordfish as its king — caught in the Strait using ancient techniques and served in a thousand ways: alla ghiotta, sweet and sour, as a pasta sauce. The fish market of Messina is among the richest in Sicily.',
+      'zona.gastro.p2': 'Sicilian classics are never far away: granita with brioche in the morning, arancini, pasta alla Norma. And a few minutes from the houses, the restaurants along the Contrada Fortino seafront serve the freshest fish with a direct view of the Strait.',
+      'zona.gastro.badge': 'Restaurants 5 minutes on foot',
+      'zona.gastro.img': 'Flavours of the Strait',
+      'zona.arrivo.label': 'Getting here',
+      'zona.arrivo.h2': 'Reaching<br>Contrada Fortino',
+      'zona.arrivo.lead': 'The houses are located along Via Consolare Pompea, 1200 — the state road running along the northern coast of Messina. Easily reachable from any direction, with private parking included.',
+      'zona.arrivo.auto.mezzo': 'By car',
+      'zona.arrivo.auto.desc': 'Motorway A18 (Catania–Messina) or A20 (Palermo–Messina), exit Messina Nord. From there, Via Consolare Pompea heading north for approximately 8 km. Private parking in the Le Verande complex.',
+      'zona.arrivo.treno.mezzo': 'By train',
+      'zona.arrivo.treno.desc': 'Messina Central Station, with direct connections from Catania (1h 20min), Palermo (3h) and the mainland via rail ferry. From the centre, taxi or ATM bus line 79 to Contrada Fortino.',
+      'zona.arrivo.aereo.mezzo': 'By plane',
+      'zona.arrivo.aereo.desc': 'Catania–Fontanarossa Airport (1h 15min by car) or Reggio Calabria Airport (20 min by ferry + car). Catania is connected to all major Italian and European airports.',
+      'zona.arrivo.traghetto.mezzo': 'By ferry',
+      'zona.arrivo.traghetto.desc': 'From the port of Villa San Giovanni (Calabria), ferries depart every 20 minutes to Messina, all day long. The crossing takes approximately 25 minutes. Ideal for those arriving from southern Italy by car.',
+      'zona.cta.label': 'Book your stay',
+      'zona.cta.h2': 'All of this,<br>50 metres from the sea',
+      'zona.cta.p': 'Casa Montante and Casa Scendente are available for weekly rentals.<br>Contact us to check availability and receive a quote.',
+      'zona.cta.btn': 'Check availability'
+    }
+  };
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    localStorage.setItem('lh-lang', lang);
+    if (T[lang]['page.title']) document.title = T[lang]['page.title'];
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc && T[lang]['page.desc']) metaDesc.content = T[lang]['page.desc'];
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      if (T[lang][el.dataset.i18n] !== undefined) el.textContent = T[lang][el.dataset.i18n];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      if (T[lang][el.dataset.i18nHtml] !== undefined) el.innerHTML = T[lang][el.dataset.i18nHtml];
+    });
+    const hamburger = document.getElementById('nav-hamburger');
+    if (hamburger) hamburger.setAttribute('aria-label', lang === 'en' ? 'Open menu' : 'Apri menu');
+    ['btn-it','btn-en','btn-it-m','btn-en-m'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.classList.toggle('active', id.includes(lang));
+    });
+  }
+
+  (function() {
+    const saved = localStorage.getItem('lh-lang');
+    const browser = navigator.language?.slice(0,2).toLowerCase();
+    const lang = saved || (browser === 'en' ? 'en' : 'it');
+    if (lang !== 'it') setLang(lang);
+  })();
+
   const hamburger = document.getElementById('nav-hamburger');
   const mobileNav = document.getElementById('nav-mobile');
   hamburger.addEventListener('click', () => {

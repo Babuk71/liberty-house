@@ -407,6 +407,8 @@
     overflow: hidden;
     cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
   }
   .spazio-card:hover .card-overlay { opacity: 1; }
   .spazio-card:hover .card-img-ph { transform: scale(1.04); }
@@ -904,6 +906,110 @@
     .servizio-item { padding: 36px 24px; }
   }
 
+  /* ── INTRO IMG WRAP ── */
+  .intro-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+  }
+  .intro-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ── CARD IMG WRAP (foto reali) ── */
+  .card-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .spazio-card:hover .card-img-wrap img { transform: scale(1.04); }
+
+  /* ── LIGHTBOX ── */
+  #lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+  }
+  #lightbox.open { display: flex; }
+  #lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+  }
+  /* ── CARD BOX ── */
+  .card-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 20px 32px 24px;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    font-weight: 300;
+  }
+  .card-box p { line-height: 1.7; }
+  .card-box p + p { margin-top: 8px; }
+  .card-box p:first-child {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--champagne);
+  }
+  .card-box p:nth-child(2) {
+    font-size: 13px;
+    color: var(--grigio-caldo);
+    text-align: justify;
+  }
+  .card-box p:last-child {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--oro);
+    margin-top: auto;
+    padding-top: 16px;
+  }
+
+  .lightbox-caption {
+    position: absolute;
+    bottom: 32px;
+    left: 0; right: 0;
+    text-align: center;
+    color: rgba(232,223,200,0.7);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-family: Georgia, serif;
+    font-weight: 300;
+    padding: 0 24px;
+    pointer-events: none;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 24px; right: 32px;
+    color: var(--oro);
+    font-size: 32px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 1;
+    padding: 0;
+  }
+
   /* ── TWEAKS PANEL ── */
   #tweaks-panel {
     position: fixed;
@@ -972,7 +1078,7 @@
     <li><a href="#spazi" data-i18n="nav.spazi">Gli spazi</a></li>
     <li><a href="#servizi" data-i18n="nav.servizi">Servizi</a></li>
     <li><a href="#galleria" data-i18n="nav.galleria">Galleria</a></li>
-    <li><a href="la-zona.html">La zona</a></li>
+    <li><a href="la-zona.html" data-i18n="nav.zona">La zona</a></li>
   </ul>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -992,7 +1098,7 @@
   <a href="#spazi" onclick="closeMobileNav()" data-i18n="nav.spazi">Gli spazi</a>
   <a href="#servizi" onclick="closeMobileNav()" data-i18n="nav.servizi">Servizi</a>
   <a href="#galleria" onclick="closeMobileNav()" data-i18n="nav.galleria">Galleria</a>
-  <a href="la-zona.html" onclick="closeMobileNav()">La zona</a>
+  <a href="la-zona.html" onclick="closeMobileNav()" data-i18n="nav.zona">La zona</a>
   <a href="#contatti" class="nav-cta-mobile" onclick="closeMobileNav()" data-i18n="nav.prenota">Prenota</a>
   <div class="lang-switcher-mobile">
     <button class="lang-btn-mobile active" id="btn-it-m" onclick="setLang('it')">IT</button>
@@ -1026,11 +1132,10 @@
     <p data-i18n="intro.p2">Costruzione nuova, mai abitata, nel complesso residenziale Le Verande. Vista diretta sullo Stretto, terrazzino privato per i pasti all'aperto, posto auto incluso. Il mare è a cinquanta metri.</p>
   </div>
   <div class="intro-visual">
-    <div class="img-placeholder">
-      <div class="ph-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1"><rect x="3" y="3" width="18" height="18"></rect><path d="M3 9h18M9 9v12"></path></svg>
-      </div>
-      <span>Foto struttura</span>
+    <div class="intro-img-wrap">
+      <img src="img/liberty-house-facciata-esterna.webp"
+           alt="Liberty House Hospitality – Facciata esterna del complesso Le Verande, Contrada Fortino, Messina"
+           loading="lazy">
     </div>
     <div class="img-gold-frame"></div>
   </div>
@@ -1047,52 +1152,46 @@
   </div>
   <div class="spazi-grid" id="spazi-grid">
     <div class="spazio-card reveal visible">
-      <div class="card-img-ph">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        <span>Casa Montante</span>
+      <div class="card-img-wrap"
+           data-wide="img/liberty-house-camera-principale-wide.webp"
+           data-caption="Camera da Letto Principale — 16 mq · Balcone privato · Vista monte">
+        <img src="img/liberty-house-camera-principale.webp"
+             alt="Camera da letto principale con letto matrimoniale e balcone privato vista monte – Casa Montante, Liberty House Messina"
+             loading="lazy">
       </div>
-      <div class="card-info">
-        <div class="card-name">Casa Montante</div>
-        <div class="card-desc" data-i18n="card.montante.desc">La corrente che sale verso Nord. Due camere matrimoniali, soggiorno con divano letto, angolo cottura attrezzato e terrazzino con vista diretta sullo Stretto.</div>
-        <div class="card-detail">
-          <span data-i18n="card.guests6">6 posti</span>
-          <span data-i18n="card.rooms2">2 camere</span>
-          <span data-i18n="card.seaview">Vista mare</span>
-        </div>
+      <div class="card-box">
+        <p>CAMERA DA LETTO PRINCIPALE</p>
+        <p>camera matrimoniale con balcone privato affacciato con vista lato monte</p>
+        <p>16 MQ &nbsp;·&nbsp; MATRIMONIALE &nbsp;·&nbsp; VISTA MONTE</p>
       </div>
-      <div class="card-overlay"></div>
     </div>
     <div class="spazio-card reveal visible" style="transition-delay:0.1s">
-      <div class="card-img-ph" style="background:#162038;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(46,109,164,0.4)" stroke-width="1"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        <span>Casa Scendente</span>
+      <div class="card-img-wrap"
+           data-wide="img/liberty-house-camera-secondaria-wide.webp"
+           data-caption="Camera da Letto Secondaria — 16 mq · Letto alla francese · Vista mare">
+        <img src="img/liberty-house-camera-secondaria.webp"
+             alt="Camera secondaria con letto alla francese, terrazzo comune e vista mare – Casa Scendente, Liberty House Messina"
+             loading="lazy">
       </div>
-      <div class="card-info">
-        <div class="card-name">Casa Scendente</div>
-        <div class="card-desc" data-i18n="card.scendente.desc">La corrente che scende verso Sud. Stessa planimetria, stessi comfort, stesso affaccio sul mare aperto. Due camere matrimoniali, soggiorno con divano letto e terrazzino privato.</div>
-        <div class="card-detail">
-          <span data-i18n="card.guests6">6 posti</span>
-          <span data-i18n="card.rooms2">2 camere</span>
-          <span data-i18n="card.seaview">Vista mare</span>
-        </div>
+      <div class="card-box">
+        <p>CAMERA DA LETTO SECONDARIA</p>
+        <p>Camera con letto alla francese ed accesso alla veranda vista mare (condivisa con Cucina e zona Living)</p>
+        <p>16 MQ &nbsp;·&nbsp; ALLA FRANCESE &nbsp;·&nbsp; VISTA MARE</p>
       </div>
-      <div class="card-overlay"></div>
     </div>
     <div class="spazio-card reveal visible" style="transition-delay:0.2s">
-      <div class="card-img-ph">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(201,169,110,0.3)" stroke-width="1"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
-        <span>La terrazza</span>
+      <div class="card-img-wrap"
+           data-wide="img/liberty-house-living-e-cucina-wide.webp"
+           data-caption="Zona Giorno Open Space — 40 mq — Accesso alla terrazza">
+        <img src="img/liberty-house-living-e-cucina.webp"
+             alt="Zona living e cucina open space con accesso alla veranda vista mare – Liberty House Messina"
+             loading="lazy">
       </div>
-      <div class="card-info">
-        <div class="card-name" data-i18n="card.esterni.name">Terrazza &amp; Esterni</div>
-        <div class="card-desc" data-i18n="card.esterni.desc">Ogni casa dispone di un terrazzino a livello con tavolo per i pasti all'aperto. Il mare è a cinquanta metri, raggiungibile a piedi. Posto auto privato all'interno del complesso.</div>
-        <div class="card-detail">
-          <span data-i18n="card.esterni.d1">Vista Stretto</span>
-          <span data-i18n="card.esterni.d2">Pranzo fuori</span>
-          <span data-i18n="card.esterni.d3">Posto auto</span>
-        </div>
+      <div class="card-box">
+        <p>Living &amp; Cucina</p>
+        <p>Zona giorno &ldquo;open space&rdquo; vivibile con due accessi alla veranda antistante vista mare</p>
+        <p>40 MQ &nbsp;·&nbsp; PRANZO FUORI &nbsp;·&nbsp; VISTA STRETTO</p>
       </div>
-      <div class="card-overlay"></div>
     </div>
   </div>
 </section>
@@ -1249,6 +1348,13 @@
   </ul>
 </footer>
 
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualizzazione immagine">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Chiudi">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+  <p class="lightbox-caption" id="lightbox-caption"></p>
+</div>
+
 <!-- TWEAKS PANEL -->
 <div id="tweaks-panel">
   <div class="tweaks-title">Tweaks</div>
@@ -1285,7 +1391,7 @@
   const T = {
     it: {
       'nav.struttura': 'La struttura', 'nav.spazi': 'Gli spazi',
-      'nav.servizi': 'Servizi', 'nav.galleria': 'Galleria', 'nav.prenota': 'Prenota',
+      'nav.servizi': 'Servizi', 'nav.galleria': 'Galleria', 'nav.zona': 'La zona', 'nav.prenota': 'Prenota',
       'hero.tagline': 'Al ritmo delle correnti',
       'intro.label': 'La struttura',
       'intro.h2': 'Affacciati sullo<br>Stretto di Messina',
@@ -1320,7 +1426,7 @@
     },
     en: {
       'nav.struttura': 'The Property', 'nav.spazi': 'The Spaces',
-      'nav.servizi': 'Services', 'nav.galleria': 'Gallery', 'nav.prenota': 'Book Now',
+      'nav.servizi': 'Services', 'nav.galleria': 'Gallery', 'nav.zona': 'The Area', 'nav.prenota': 'Book Now',
       'hero.tagline': 'To the rhythm of the currents',
       'intro.label': 'The Property',
       'intro.h2': 'Overlooking the<br>Strait of Messina',
@@ -1458,6 +1564,29 @@
     el.textContent = addr;
     el.href = 'mailto:' + addr;
   })();
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  function openLightbox(src, caption) {
+    lightboxImg.src = src;
+    lightboxCaption.textContent = caption || '';
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+  document.querySelectorAll('[data-wide]').forEach(el => {
+    el.addEventListener('click', () => openLightbox(el.dataset.wide, el.dataset.caption));
+  });
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lightboxImg.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
   // Smooth scroll hero
   document.querySelector('.hero-scroll').addEventListener('click', () => {
